@@ -21,6 +21,7 @@ use {
             rsa_key_generator_page::RSAKeyGeneratorMessage,
             unix_time_converter_page::UnixTimeConverterMessage,
             url_encoder_decoder_page::UrlEncoderDecoderMessage,
+            uuid_generator_page::UuidGeneratorMessage,
         },
     },
     cosmic::surface,
@@ -53,6 +54,7 @@ pub enum Message {
     JwtDebuggerMessage(JwtDebuggerMessage),
     RSAKeyGeneratorMessage(RSAKeyGeneratorMessage),
     PasswordGeneratorMessage(PasswordGeneratorMessage),
+    UuidGeneratorMessage(UuidGeneratorMessage),
     LoremIpsumGeneratorMessage(LoremIpsumGeneratorMessage),
     Surface(surface::Action),
 }

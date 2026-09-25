@@ -24,6 +24,10 @@
       <li xml:lang="cs">Kodér a dekodér URL</li>
       <li>JWT Debugger</li>
       <li xml:lang="cs">Debugger JWT</li>
+      <li>RSA Key Generator</li>
+      <li>Password Generator</li>
+      <li>UUID Generator</li>
+      <li>Hash Generator</li>
       <li>Lorem ipsum Generator</li>
       <li xml:lang="cs">Generátor Lorem Ipsum</li>
       <li>Hash Generator</li>

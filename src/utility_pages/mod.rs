@@ -8,6 +8,7 @@ pub mod password_generator_page;
 pub mod rsa_key_generator_page;
 pub mod unix_time_converter_page;
 pub mod url_encoder_decoder_page;
+pub mod uuid_generator_page;
 
 use {
     crate::{Message, app::AppModel},

@@ -16,6 +16,7 @@ use {
             rsa_key_generator_page::RSAKeyGeneratorPage,
             unix_time_converter_page::UnixTimeConverterPage,
             url_encoder_decoder_page::UrlEncoderDecoderPage,
+            uuid_generator_page::UuidGeneratorPage,
         },
     },
     cosmic::{
@@ -126,6 +127,11 @@ impl cosmic::Application for AppModel {
             .icon(icon::from_name("password-manager-symbolic"));
 
         nav.insert()
+            .text(fl!("uuid-generator"))
+            .data::<Page>(Page::UuidGenerator)
+            .icon(icon::from_name("document-properties-symbolic"));
+
+        nav.insert()
             .text(fl!("hash-generator"))
             .data::<Page>(Page::HashGenerator)
             .icon(
@@ -173,6 +179,7 @@ impl cosmic::Application for AppModel {
             Page::PasswordGenerator,
             Box::new(PasswordGeneratorPage::default()),
         );
+        utility_pages.insert(Page::UuidGenerator, Box::new(UuidGeneratorPage::default()));
         utility_pages.insert(Page::HashGenerator, Box::new(HashGeneratorPage::default()));
         utility_pages.insert(
             Page::LoremIpsumGenerator,
@@ -379,6 +386,13 @@ impl cosmic::Application for AppModel {
                     .unwrap()
                     .handle_message(message);
             }
+            Message::UuidGeneratorMessage(_) => {
+                return self
+                    .utility_pages
+                    .get_mut(&Page::UuidGenerator)
+                    .unwrap()
+                    .handle_message(message);
+            }
             Message::HashGeneratorMessage(_) => {
                 return self
                     .utility_pages
@@ -440,9 +454,9 @@ pub enum Page {
     JwtDebugger,
     RSAKeyGenerator,
     PasswordGenerator,
+    UuidGenerator,
     LoremIpsumGenerator,
     HashGenerator,
-    // UUID generator
     // Regex Tester
     // URL Parser
     // Colour Converter
